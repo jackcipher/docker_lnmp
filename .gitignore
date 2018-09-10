@@ -1,7 +1,5 @@
 # tiredoy/docker_lnmp
 
-/www/*
 /nginx/conf.d/simple_sns.conf
 /nginx/conf.d/site.conf
-/mysql/datadir/*
 /.idea/
