@@ -1,0 +1,37 @@
+nginx:
+  container_name: nginx
+  image: nginx:latest
+  ports:
+    - "80:80"
+    - "443:443"
+  volumes:
+    - ./www:/www
+    - ./nginx/conf.d:/etc/nginx/conf.d
+  links:
+    - phpfpm
+phpfpm:
+  container_name: phpfpm
+  image: tiredoy/php:1.0
+  ports:
+    - "9000:9000"
+  volumes:
+    - ./www:/www
+  links:
+    - mysql
+    - redis
+mysql:
+  container_name: mysql
+  image: mysql:5.6
+  ports:
+    - "3306:3306"
+  environment:
+    - MYSQL_ROOT_HOST=%
+    - MYSQL_ROOT_PASSWORD=jack
+  volumes:
+    - ./mysql/conf.d:/etc/mysql/conf.d
+    - ./mysql/datadir:/var/lib/mysql
+redis:
+  container_name: redis
+  image: redis:latest
+  ports:
+    - "6379:6379"
