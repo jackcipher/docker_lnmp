@@ -11,7 +11,7 @@ nginx:
     - phpfpm
 phpfpm:
   container_name: phpfpm
-  image: tiredoy/php:1.0
+  image: tiredoy/php:2.0
   ports:
     - "9000:9000"
   volumes:
