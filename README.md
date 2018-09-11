@@ -59,8 +59,6 @@
 $ git clone git@github.com:tiredoy/docker_lnmp.git
 ```
 
-
-
 **Note: ** 建议在Home目录拉取目录，这样可以确保当前用户对目录具有所有权限。如果你对文件权限比较熟悉，请忽略此条建议。
 
 ## 环境配置
