@@ -7,9 +7,9 @@ apt-get update
 apt-get upgrade
 apt-get install vim
 
-#cd /usr/local/extensions/mycrypt
-#phpize
-#./configure
-#make
-#make install
-#docker-php-ext-enable mycrypt
+cd /usr/local/extensions/mycrypt
+phpize
+./configure
+make
+make install
+docker-php-ext-enable mycrypt

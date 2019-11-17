@@ -130,9 +130,9 @@ PHP_FUNCTION(mydec)
     if (vstr.size() < 3) {
 		RETURN_LONG(-1);
 	}
-    if (abs(time(NULL) - atoi(vstr[0].data())) > 10) {
-        RETURN_LONG(-2);
-    }
+//    if (abs(time(NULL) - atoi(vstr[0].data())) > 10) {
+//        RETURN_LONG(-2);
+//    }
     string rawbody;
     if (aes_decrypt(base64_decode(vstr[2]), vstr[0], rawbody) < 0) {
         RETURN_LONG(-3);
