@@ -20,7 +20,7 @@ services:
     ports:
       - "9000:9000"
     volumes:
-      - /stack/code/php:/stack/code/php
+      - /stack:/stack
       - ./phpfpm/php.ini:/usr/local/etc/php/conf.d/php.ini
     restart: always
     privileged: true

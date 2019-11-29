@@ -6,19 +6,16 @@ sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g' /etc/apk/repositories
 
 apk update
 
-echo 'step2: 安装拓展'
-apk add --no-cache libmcrypt-dev freetype-dev libjpeg-turbo-dev git libpng-dev jq vim libzip-dev
+echo 'step2: 安装拓展 - 系统自带'
+apk add --no-cache gcc g++ make autoconf libmcrypt-dev freetype-dev libjpeg-turbo-dev git libpng-dev jq vim libzip-dev
 
-docker-php-ext-install mysqli pdo pdo_mysql mbstring bcmath zip opcache
+docker-php-ext-install mysqli pdo pdo_mysql bcmath zip opcache
 
 docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ --with-png-dir=/usr/include/
 
 docker-php-ext-install -j$(nproc) gd
 
-echo 'step3: 安装mcrypt'
+echo 'step3: 安装拓展 - PECL'
 
-tar zxvf /usr/local/assets/mcrypt-1.0.3.tgz -C /usr/local/assets
-
-docker-php-ext-install /usr/local/assets/mcrypt-1.0.3
-
-docker-php-ext-enable mcrypt
+pecl install /usr/local/assets/redis-5.1.1.tgz
+docker-php-ext-enable redis
