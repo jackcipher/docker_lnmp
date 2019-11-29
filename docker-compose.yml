@@ -16,7 +16,8 @@ services:
       - ./nginx/conf.d:/etc/nginx/conf.d
   phpfpm:
     container_name: phpfpm
-    build: ./php
+    image: tiredoy/php7.3:1.0
+#    build: ./php
     ports:
       - "9000:9000"
     volumes:
@@ -26,18 +27,6 @@ services:
     privileged: true
     networks:
       - net-default
-#  phpfpm:
-#    container_name: phpfpm
-#    build: ./php7.0
-#    ports:
-#      - "9000:9000"
-#    volumes:
-#      - /stack/code/php:/stack/code/php
-##      - ./phpfpm/php.ini:/usr/local/etc/php/conf.d/php.ini
-#    #    restart: always
-#    privileged: true
-#    networks:
-#      - net-default
   mysql:
     container_name: mysql
     image: mysql:5.6
