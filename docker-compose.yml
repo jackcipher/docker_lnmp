@@ -20,6 +20,7 @@ services:
 #    build: ./php
     ports:
       - "9000:9000"
+      - "9501:9501"
     volumes:
       - /stack:/stack
       - ./phpfpm/php.ini:/usr/local/etc/php/conf.d/php.ini
