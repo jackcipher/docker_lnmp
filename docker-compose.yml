@@ -35,7 +35,7 @@ services:
       - "3306:3306"
     environment:
       - MYSQL_ROOT_HOST=%
-      - MYSQL_ROOT_PASSWORD=jack
+      - MYSQL_ROOT_PASSWORD=guke@8888
     volumes:
       - ./mysql/conf.d:/etc/mysql/conf.d
       - ./mysql/datadir:/var/lib/mysql
@@ -50,6 +50,10 @@ services:
       - "6379:6379"
     restart: always
     privileged: true
+    command: redis-server /usr/local/etc/redis/redis.conf
+    volumes:
+      - ./redis/redis.conf:/usr/local/etc/redis/redis.conf
+      - ./redis/data:/data
     networks:
       - net-default
   mongo:
